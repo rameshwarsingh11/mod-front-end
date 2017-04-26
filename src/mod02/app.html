@@ -1,24 +1,23 @@
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.js"></script>
 <div class="mod02">
-	<div class="ngdialog ngdialog-theme-default col-xs-12 col-sm-8 col-md-6 col-lg-6">
+	<div class="ngdialog ngdialog-theme-default col-xs-12 col-sm-8 col-md-6 col-lg-6" role="main">
 
-		<div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+		<div uib-alert ng-repeat="alert in alerts" tabindex="0" ng-class="'alert-' + (alert.type || 'warning')"  aria-label="Close-Alert" close="closeAlert($index)" aria-describedby="{{alert.msg}}">{{alert.msg}}</div>
 
-	    <form class="future-banking">
+	    <form class="future-banking" role="future banking form">
 			
 			<section class="container-fluid header">
 		    	<div class="row">
 		    		<div class="col-xs-12 col-sm-12 col-md-6">
 		        		<i class="fa fa-credit-card fa-2x"></i>
-		        		<p class="title">Send Transfer</p>
+		        		<p class="title" tabindex="0" aria-label="Send Transfer" >Send Transfer</p>
 		        	</div>
 		        	<div class="col-xs-12 col-sm-12 col-md-6">
 		        		<div class="btn-group" role="group">
-			        		<button class="btn btn-default">
-			        			<img class="profile-img">
-			        			<span id="user-name">John Smith</span>
+			        		<button class="btn btn-default" role="button">
+			        			<img class="profile-img" >
+			        			<span id="user-name" aria-label="John Smith">John Smith</span>
 			        		</button>
-			        		<button class="btn btn-default">
+			        		<button class="btn btn-default" role="button" aria-label="Sign out">
 			        			Sign out
 								<i class="fa fa-sign-out fa-lg"></i>
 			        		</button>
@@ -37,19 +36,19 @@
 			        <div class="row">
 			        	<div class="col-xs-12">
 			
-			        		<h4>From</h4>
+			        		<h4 tabindex="0" aria-label="From">From</h4>
 			        		
 			        		<div class="row bg-gray">
-			        			<div class="col-xs-6" aria-describedby="account-name">Account Name:</div>
-			        			<div class="col-xs-6" id="account-name">Checking</div>
+			        			<div class="col-xs-6" aria-label="Account Name" tabindex="0">Account Name:</div>
+			        			<div class="col-xs-6" id="account-name" tabindex="0" aria-describedby="Checking">Checking</div>
 			        		</div>
 			        		<div class="row bg-gray">
-			        			<div class="col-xs-6" aria-describedby="account-number">Account Number:</div>
-			        			<div class="col-xs-6" id="account-number">123456789</div>
+			        			<div class="col-xs-6" aria-label="Account Number" tabindex="0">Account Number:</div>
+			        			<div class="col-xs-6" id="account-number" tabindex="0" aria-label="123456789">123456789</div>
 			        		</div>
 			        		<div class="row bg-gray">
-			        			<div class="col-xs-6" aria-describedby="account-balance">Current Balance:</div>
-			        			<div class="col-xs-6" id="account-balance">{{5000 | currency }}</div>
+			        			<div class="col-xs-6" aria-describedby="Current Balance" tabindex="0">Current Balance:</div>
+			        			<div class="col-xs-6" id="account-balance" aria-describedby="currency" tabindex="0">{{5000 | currency }}</div>
 			        		</div>
 
 			        		<hr/>
@@ -64,26 +63,26 @@
 			        <div class="row">
 			        	<div class="col-xs-12">
 
-			        		<h4>Transfer details</h4>
+			        		<h4 role="heading" tabindex="0" aria-label="Transfer details">Transfer details</h4>
 			        		
 			        		<div class="row bg-gray">
 			        			<div class="col-xs-6">
-			        				<label id="transfer-amount">Amount to transfer:</label>
+			        				<label id="transfer-amount" tabindex="0" aria-label="Amount to transfer">Amount to transfer:</label>
 			        			</div>
 			        			<div class="col-xs-6">
-				        			<input class="form-control" type="text" value="{{300 | currency}}">
+				        			<input class="form-control" type="text" aria-label="{{300 | currency}}" value="{{300 | currency}}">
 			        			</div>
 			        		</div>
 			        		<div class="row bg-gray">
 			        			<div class="col-xs-6">
-			        				<label id="transfer-frequency">Frequency:</label>
+			        				<label id="transfer-frequency" tabindex="0" aria-label="Frequency">Frequency:</label>
 			        			</div>
 			        			<div class="col-xs-6">
-			        				<select class="form-control">
-									  <option>Every day</option>
-									  <option>Weekly</option>
-									  <option>Bi-weekly</option>
-									  <option>Monthly</option>
+			        				<select class="form-control" role="listbox" tabindex="0" aria-haspopup="true">
+									  <option  role="option">Every day</option>
+									  <option  role="option">Weekly</option>
+									  <option  role="option">Bi-weekly</option>
+									  <option  role="option">Monthly</option>
 									</select>
 			        			</div>
 			        		</div>
@@ -99,21 +98,21 @@
 				<div class="col-xs-12">
 			        <div class="row">
 			        	<div class="col-xs-12">
-			        		<h4>Send to</h4>
+			        		<h4 role="heading" tabindex="0" aria-label="Send to">Send to</h4>
 			        		
 			        		<div class="row ">
 			        			<div class="col-xs-8">
 			        				<img class="profile-img">
-			        				<h3 id="recipient">Jane Smith</h3>
+			        				<h3 id="recipient" tabindex="0" aria-label="Jane Smith" role="heading">Jane Smith</h3>
 			        			</div>
 			        			<div class="col-xs-4">
-				        			<a href="" class="change-user-link">Change recipient</a>
+				        			<a role="button" href="" class="change-user-link" aria-labelledby="Change Recipeint">Change recipient</a>
 			        			</div>
 			        		</div>
 
 			        		<hr/>
 
-							<button type="button" class="btn btn-primary btn-send" ng-click="addAlert()">Send {{300 | currency}}</button>
+							<button type="button" role="alert" aria-live="assertive" aria-describedby="Send {{300 | currency}}" class="btn btn-primary btn-send" ng-click="addAlert()">Send {{300 | currency}}</button>
 
 			        	</div>
 			        </div>

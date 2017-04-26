@@ -1,73 +1,52 @@
-import './mod01.scss';
-
-//angular.module('app').component('mod01', mod01);
-
 export const mod01 = {
-	template: require('./app.html'),
+  template: require('./app.html'),
+  //controller(myService) {
+    controller($scope,appService) {
 
-	controller($scope,$locale){
-	// $scope.newArr = myService.data;
-		/*alert('before service call');
-		myService.getData().then(function(data){
-    $scope.newArr=data;
-    alert('In mod01 controller service');
-}, function(err){
-	alert('In mod01 controller err');
-    //Handle error here
-});*/
- if ($locale.id == 'en-us') {
- 	
-var newArr=[
-		{ text: "Open a chequing account" },
-		{ text: "Open a savings account" },
-		{ text: "Open a U.S. Dollar account" },
-		{ text: "Review my everyday banking needs" },
-		{ text: "Switch to TD" },
-		{ text: "Apply for Overdraft Protection" }
+      $scope.setLanguage = function(lang) {
+       if(lang==='EN')
+       {
+         appService.getAllButtons("/mod01/data.json", function (res) {
+          $scope.buttons = res.data;
+          $scope.count=res.data.length;
+          $scope.h3="Book An Appointment";
+          $scope.p="Our Investing Topics";
+          $scope.h4="Pick a topic, then we will find a time and place";
+          $scope.an="Return to previous screen";
+          $scope.chooselang="Select Language";
+        }, function (error) {
+          $scope.error = error.data;
+        });
+       }
+       else
+       {
+        appService.getAllButtons("/mod01/data-fr.json", function (res) {
+          $scope.buttons = res.data;
+          $scope.count=res.data.length;
+        }, function (error) {
+          $scope.error = error.data;
+        });
+        $scope.h3="Prenez rendez-vous";
+        $scope.p="Nos sujets d'investissement";
+        $scope.h4="Choisissez un sujet, puis nous trouverons un moment et un lieu.";
+        $scope.an="Retour à l'écran précédent";
+        $scope.chooselang="Choisir la langue";
+      }
+    }
+    $scope.setLanguage('EN');
+    $scope.optionValue
+    $scope.setRequired = function() {
+      if($scope.optionValue==='EN') {
+        $scope.setLanguage('EN');
 
-		];
-	}
-	else
-	{
-		var newArr=[
-		{ text: "Vos données de formulaire resteront" },
-		{ text: "Mot de passe" },
-		{ text: "Soumettre" },
-		{ text: "Vos données de formulaire resteront" },
-		{ text: "Vos données de formulaire resteront" },
-		{ text: "Vos données de formulaire resteront" }
-
-		];
-	}
-		
-//alert('after service call');
-
-		this.data=chunk(newArr, 2);
-
-
-		function chunk(arr, size) {
-			var newArr = [];
-			for (var i=0; i<arr.length; i+=size) {
-				newArr.push(arr.slice(i, i+size));
-			}
-			
-			return newArr;
-		}
-
-
-//alert('this is the last text');
-
-
- /* myService.getData().then(function(data){
-    $scope.data=data;
-    alert('In mod01 controller service');
-}, function(err){
-	alert('In mod01 controller err');
-    //Handle error here
-});
-*/
-}
+      }
+      else if($scope.optionValue==='FR'){
+        $scope.setLanguage('FR');
+      }
+      
+    }
+     $scope.back = function () {
+      history.back();
+    }
+  }
 };
-
-
-//angular.module('app', []);

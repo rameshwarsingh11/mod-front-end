@@ -1,102 +1,27 @@
-
-<!-- update the comments in whole document-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Using Bootstrap 3 Two Column Grid Layouts </title>
-
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.min.js">
-	</script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js">
-	</script>
-	<!-- <script src="app.js"></script> -->
-	<!-- <script src="account-message-component.js"></script> -->
-	<style type="text/css">
-		/* Some custom styles to beautify this example */
-   /* .demo-content{
-        padding: 15px;
-        font-size: 18px;
-        min-height: 50px;
-        background: #dbdfe5;
-        margin-bottom: 10px;
-    }
-    .demo-content.bg-alt{
-        background: #abb1b8;
-    }*/
-</style>
-</head>
-<body class="mod01">
-	<div>
-		<div>
-
-<div class=""> Book An Appointment</div>
-<br>
-<div class=""> Our investing Topics </div>
-<br>
-
-<div class="">Pick a topic , then we'll find a time and space.</div>
-<br>
-
-			<div class="container">
-				<ul>
-					<div ng-repeat="data in $ctrl.data">
-						<!--Row with two equal columns-->
-						<div class="row">
-							<div class="col-sm-6">
-								
-									<button type="button" ng-repeat="item in data">{{item.text}}</button>
-								
-							</div>
-
-
-							 <div class="col-sm-6">
-								
-								<button type="button" ng-repeat="item in data">{{item.text}}</button>
-								
-							</div>  
-						</div>
-						<hr>
-						<!-- update the comments-->
-						<!--Row with two columns divided in 1:2 ratio-->
-					<!-- 	<div class="row">
-							<div class="col-sm-6">
-								<div class="">
-
-									<button type="button">{{data.text}}</button>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="">
-									<button type="button">{{data.text}}</button>
-								</div>
-							</div>
-						</div>
-						<hr> -->
-						<!--Row with two columns divided in 1:3 ratio-->
-					<!-- 	<div class="row">
-							<div class="col-sm-6">
-								<div class="">
-									<button type="button">{{data.text}}</button>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="">
-									<button type="button">{{data.text}}</button>
-								</div>
-							</div>
-						</div> -->
-					</div>
-				</ul>
-			</div>
-		</div>
-	</div>
-</body>
-</html>       		
+<div class="container">
+    <div class="text-center">
+ <h3>{{h3}}</h3>
+  <p>{{p}}</p> 
+  <h4>{{h4}}</h4>
+ </div>
+ <div class="row testone-main-div"  >
+     <div  class="col-md-8 testone-button-div col-md-offset-3">
+         <div  class="col-md-4">
+         <label for="language">{{chooselang}} :</label>
+            </div>
+          <div  class="col-md-4">
+         <select class="form-control" id="language" name="language" ng-model="optionValue" ng-change="setRequired()" ng-init="optionValue='EN'">
+            <option value="0" selected="selected">Please select</option>
+              <option value="EN">English</option>
+              <option value="FR">French</option>
+            </select>
+            </div>
+     </div>
+     </div>
+ <div class="row testone-main-div"  >
+ <app-directive ng-repeat="button in buttons" text="{{button.text}}" count="{{count}}"></app-directive>
+</div>
+<div class="text-center marTop5">
+ <a class="col-green" ng-click="back()">{{an}}</a>
+ </div>
+</div>

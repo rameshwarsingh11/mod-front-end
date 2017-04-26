@@ -24,8 +24,23 @@
     return dataService;
 }
 */
+export function appService($http) {
+
+    var service = {};
+
+    service.getAllButtons = function (url, success, error) {
+        $http.get(url).then(function (res) {
+            success(res);
+        },function (err) {
+            error(err);
+        });
+    }
+
+    return service;
+}
 
 
+/*
 
 (function (app) {
     'use strict';
@@ -61,4 +76,4 @@
         }
     }
 
-}(angular.module('app')));
+}(angular.module('app')));*/
