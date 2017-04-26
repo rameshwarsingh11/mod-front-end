@@ -1,0 +1,9 @@
+Test #1:
+
+1. Create the responsive web layout seen in mobile/tablet/desktop.png, using bootstrap 3 grid and any css styles using sass.
+2. Create a service that loads the data.json file and populates the model of app.js controller.
+3. Create the buttons using ng-repeat and load the text copy from the model.
+4. Change the buttons text copy to another language (can be lorem ipsum) using Angular localization or any localization library when changing the locale key, example 'en' or 'fr'
+5. Create an Angular directive that will create equal heights for all buttons if the text is too long and wraps inside one of the buttons. See the mobile vs tablet image.
+6. If there is only five buttons have the buttons left aligned.
+7. If there is only one button then center the button.

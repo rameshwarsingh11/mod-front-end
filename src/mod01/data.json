@@ -1,0 +1,8 @@
+[
+    { text: "Open a chequing account" },
+    { text: "Open a savings account" },
+    { text: "Open a U.S. Dollar account" },
+    { text: "Review my everyday banking needs" },
+    { text: "Switch to TD" },
+    { text: "Apply for Overdraft Protection" }
+]

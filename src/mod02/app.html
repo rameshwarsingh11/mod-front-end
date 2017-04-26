@@ -1,0 +1,125 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.js"></script>
+<div class="mod02">
+	<div class="ngdialog ngdialog-theme-default col-xs-12 col-sm-8 col-md-6 col-lg-6">
+
+		<div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+
+	    <form class="future-banking">
+			
+			<section class="container-fluid header">
+		    	<div class="row">
+		    		<div class="col-xs-12 col-sm-12 col-md-6">
+		        		<i class="fa fa-credit-card fa-2x"></i>
+		        		<p class="title">Send Transfer</p>
+		        	</div>
+		        	<div class="col-xs-12 col-sm-12 col-md-6">
+		        		<div class="btn-group" role="group">
+			        		<button class="btn btn-default">
+			        			<img class="profile-img">
+			        			<span id="user-name">John Smith</span>
+			        		</button>
+			        		<button class="btn btn-default">
+			        			Sign out
+								<i class="fa fa-sign-out fa-lg"></i>
+			        		</button>
+		        		</div>
+		        	</div>
+		        </div>
+		        <div class="row">
+		        	<div class="col-xs-12">
+		        		<hr/>
+		        	</div>
+		        </div>
+	        </section>
+
+	        <section class="container-fluid" id="account-info">
+				<div class="col-xs-12">
+			        <div class="row">
+			        	<div class="col-xs-12">
+			
+			        		<h4>From</h4>
+			        		
+			        		<div class="row bg-gray">
+			        			<div class="col-xs-6" aria-describedby="account-name">Account Name:</div>
+			        			<div class="col-xs-6" id="account-name">Checking</div>
+			        		</div>
+			        		<div class="row bg-gray">
+			        			<div class="col-xs-6" aria-describedby="account-number">Account Number:</div>
+			        			<div class="col-xs-6" id="account-number">123456789</div>
+			        		</div>
+			        		<div class="row bg-gray">
+			        			<div class="col-xs-6" aria-describedby="account-balance">Current Balance:</div>
+			        			<div class="col-xs-6" id="account-balance">{{5000 | currency }}</div>
+			        		</div>
+
+			        		<hr/>
+
+			        	</div>
+			        </div>
+		        </div>
+	        </section>
+
+	        <section class="container-fluid" id="transfer-details">
+				<div class="col-xs-12">
+			        <div class="row">
+			        	<div class="col-xs-12">
+
+			        		<h4>Transfer details</h4>
+			        		
+			        		<div class="row bg-gray">
+			        			<div class="col-xs-6">
+			        				<label id="transfer-amount">Amount to transfer:</label>
+			        			</div>
+			        			<div class="col-xs-6">
+				        			<input class="form-control" type="text" value="{{300 | currency}}">
+			        			</div>
+			        		</div>
+			        		<div class="row bg-gray">
+			        			<div class="col-xs-6">
+			        				<label id="transfer-frequency">Frequency:</label>
+			        			</div>
+			        			<div class="col-xs-6">
+			        				<select class="form-control">
+									  <option>Every day</option>
+									  <option>Weekly</option>
+									  <option>Bi-weekly</option>
+									  <option>Monthly</option>
+									</select>
+			        			</div>
+			        		</div>
+
+			        		<hr/>
+
+			        	</div>
+			        </div>
+		        </div>
+	        </section>
+
+	        <section class="container-fluid" id="send-to-recipient">
+				<div class="col-xs-12">
+			        <div class="row">
+			        	<div class="col-xs-12">
+			        		<h4>Send to</h4>
+			        		
+			        		<div class="row ">
+			        			<div class="col-xs-8">
+			        				<img class="profile-img">
+			        				<h3 id="recipient">Jane Smith</h3>
+			        			</div>
+			        			<div class="col-xs-4">
+				        			<a href="" class="change-user-link">Change recipient</a>
+			        			</div>
+			        		</div>
+
+			        		<hr/>
+
+							<button type="button" class="btn btn-primary btn-send" ng-click="addAlert()">Send {{300 | currency}}</button>
+
+			        	</div>
+			        </div>
+		        </div>
+	        </section>
+
+	    </form>
+	</div>
+</div>
